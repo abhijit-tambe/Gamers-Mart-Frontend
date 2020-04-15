@@ -1,0 +1,13 @@
+.login-container{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.login-container .login{
+   height: 250px;
+   width: 250px;
+   margin: auto;
+   background-color: grey;
+   display: inline-block;
+   
+}
