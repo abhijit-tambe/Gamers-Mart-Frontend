@@ -1,9 +1,9 @@
 import React,{Component} from 'react'
-import './Login.css'
+import './SignInComponent.css'
 
 import AuthenticateUser from '../../Authentication/AuthenticationService.js'
 
-class Login extends Component{
+class SignInComponent extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -56,25 +56,25 @@ class Login extends Component{
         
         return(
             <div className="container">
-                <h1>Login</h1>
-                {this.state.loginFailed && <h3> Login Failed Invalid Username or password</h3>}
+                <h3>Sign in to Gamers Mart</h3>
+                {this.state.loginFailed && <h3> LoginComponent Failed Invalid Username or password</h3>}
                 {this.state.successMessage &&<h3>Loggedin Successfull</h3>}
-           <div>
+           <div className="signIn  login">
                <label>
-                   User Name  <br/>
+                   User Name</label>  <br/>
                <input type="text" name="username" value={this.state.username} onChange={this.changeInput}></input>
-               </label>
+               
                <br/>
                <label>
-                   Password <br/>
+                   Password </label> <br/>
                <input type="password" name="password" value={this.state.password} onChange={this.changeInput}></input>
-               </label>
-               <button className="btn btn-md btn-primary" onClick={this.loginCheck}>Login</button>
-               <button className="btn btn-md btn-primary" onClick={this.logout}>Logout</button>
+               <br/>
+               <button className="btn btn-md btn-primary" onClick={this.loginCheck}>Sign in</button>
+               {/* <button className="btn btn-md btn-primary" onClick={this.logout}>Logout</button> */}
            </div>
            </div>
         );
     }
 }
 
-export default Login;
+export default SignInComponent;

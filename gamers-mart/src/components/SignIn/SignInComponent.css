@@ -1,0 +1,27 @@
+.login-container{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.login{
+   height: 250px;
+   width: 500px;
+   margin: auto;
+   background-color: lightgrey;
+   display: inline-block;
+   
+}
+
+.btn-md{
+    margin: 10px;
+    width: 250px;
+}
+
+.signIn input{
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.signIn label{
+    margin-bottom: 10px;
+}
