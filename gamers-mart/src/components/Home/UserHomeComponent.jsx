@@ -2,7 +2,7 @@ import React,{ Component } from "react";
 import AuthenticationService from '../../Authentication/AuthenticationService.js'
 
 
-class Home extends Component{
+class UserHomeComponent extends Component{
     // constructor(){
     //     super()
     // }
@@ -15,4 +15,4 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default UserHomeComponent;
