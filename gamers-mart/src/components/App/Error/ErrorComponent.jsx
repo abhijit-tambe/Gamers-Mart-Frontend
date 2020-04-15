@@ -1,6 +1,6 @@
 import React,{ Component } from "react";
 
-class Error extends Component{
+class ErrorComponent extends Component{
     render (){
         return(
             <h1> 404 page not found</h1>
@@ -8,4 +8,4 @@ class Error extends Component{
     }
 }
 
-export default Error;
+export default ErrorComponent;
