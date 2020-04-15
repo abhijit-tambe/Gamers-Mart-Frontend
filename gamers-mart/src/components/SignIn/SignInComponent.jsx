@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './SignInComponent.css'
 
 import AuthenticateUser from '../../Authentication/AuthenticationService.js'
+import UserHomeComponent from '../Home/UserHomeComponent';
 
 class SignInComponent extends Component{
     constructor(props){
@@ -39,7 +40,7 @@ class SignInComponent extends Component{
             //     loginFailed:false,
             //     successMessage: true,
             // })
-            this.props.history.push(`/Home/${this.state.username}`);
+            this.props.history.push(`/home/${this.state.username}`);
         }else{
             console.log('fail')
             this.setState({
@@ -55,11 +56,12 @@ class SignInComponent extends Component{
     render(){
         
         return(
-            <div className="container">
+            <div className="container  ">
                 <h3>Sign in to Gamers Mart</h3>
                 {this.state.loginFailed && <h3> LoginComponent Failed Invalid Username or password</h3>}
                 {this.state.successMessage &&<h3>Loggedin Successfull</h3>}
-           <div className="signIn  login">
+           <div className="signIn login-container d-flex justify-content-center align-items-center">
+               <div className="login">
                <label>
                    User Name</label>  <br/>
                <input type="text" name="username" value={this.state.username} onChange={this.changeInput}></input>
@@ -71,7 +73,11 @@ class SignInComponent extends Component{
                <br/>
                <button className="btn btn-md btn-primary" onClick={this.loginCheck}>Sign in</button>
                {/* <button className="btn btn-md btn-primary" onClick={this.logout}>Logout</button> */}
+               </div>
            </div>
+
+
+           
            </div>
         );
     }
