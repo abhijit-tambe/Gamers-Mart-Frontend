@@ -40,7 +40,7 @@ class SignInComponent extends Component{
             //     loginFailed:false,
             //     successMessage: true,
             // })
-            this.props.history.push(`/home/${this.state.username}`);
+            this.props.history.push(`/home`);
         }else{
             console.log('fail')
             this.setState({

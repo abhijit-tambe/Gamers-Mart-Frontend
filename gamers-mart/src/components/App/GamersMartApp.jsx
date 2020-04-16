@@ -18,7 +18,7 @@ render(){
             <Switch>
             <Route path="/" exact component={SignInComponent}></Route>
             <Route path="/login" component={SignInComponent}></Route>
-            <Route path="/home/:name" component={UserHomeComponent}></Route>
+            <Route path="/home" component={UserHomeComponent}></Route>
             <Route path="/logout" component={SignOutComponent}/>
             <Route component={ErrorComponent}/>
             </Switch>        

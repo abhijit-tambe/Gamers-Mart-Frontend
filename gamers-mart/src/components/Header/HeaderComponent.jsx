@@ -14,8 +14,8 @@ class HeaderComponent extends Component{
                 <nav className="navbar navbar-dark bg-dark navbar-expand-md">
                     <div> <a href="abhijittambe.com" className="navbar-brand">GamersMart</a></div>
                     <ul className="navbar-nav">
-                        <li><Link className="nav-link" to="/marketplace">Market Place</Link></li>
-                        {islogged && <li><Link className="nav-link" to="home/:name" >Dashboard</Link></li>}
+                        <li><Link className="nav-link" to="/marketplace">Marketplace</Link></li>
+                        {islogged && <li><Link className="nav-link" to="/home" >Dashboard</Link></li>}
                     </ul>
                     <ul className="navbar-nav  navbar-collapse justify-content-end">
                         {!islogged && <li><Link to="/login" className="nav-link">Sign In</Link></li>}

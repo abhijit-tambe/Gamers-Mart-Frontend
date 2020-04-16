@@ -1,15 +1,16 @@
 import React,{ Component } from "react";
-import AuthenticationService from '../../Authentication/AuthenticationService.js'
+import AuthenticationService, { USER_NAME_SESSION_ATTRIBUTE_NAME } from '../../Authentication/AuthenticationService.js'
 
 
 class UserHomeComponent extends Component{
-    // constructor(){
-    //     super()
-    // }
+    constructor(props){
+        super(props)
+    }
     render(){
+        var user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
         return(
             <div>
-                welcome home {this.props.match.params.name}
+                welcome home {user}
             </div>
         )
     }
