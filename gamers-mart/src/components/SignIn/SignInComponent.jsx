@@ -61,7 +61,7 @@ class SignInComponent extends Component{
                 {this.state.loginFailed && <h3> LoginComponent Failed Invalid Username or password</h3>}
                 {this.state.successMessage &&<h3>Loggedin Successfull</h3>}
            <div className="signIn login-container d-flex justify-content-center align-items-center">
-               <div className="login">
+               <div >
                <label>
                    User Name</label>  <br/>
                <input type="text" name="username" value={this.state.username} onChange={this.changeInput}></input>
