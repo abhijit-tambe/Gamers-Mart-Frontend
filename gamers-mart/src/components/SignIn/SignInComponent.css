@@ -6,13 +6,17 @@
     margin: auto;
     height: 300px;
     width: 300px;
-    background-color:lightgray;
-    border-radius: 10px;
-    border-color: grey;
+    background-color:rgb(245, 245, 245);
+    border-radius: 10px ;
+    border: rgb(150, 150, 150) solid 1px;
+    /* border-width: 10px; */
+    /* border-width: 10px;
+    border-color: red; */
 }
 
-h3{
-    margin:50px;
+h5{
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 .login{
    /* height: 250px;
@@ -32,6 +36,9 @@ h3{
 .signIn input{
     width: 250px;
     margin-bottom: 10px;
+    border-color: rgb(200, 200, 200);
+    border-radius: 3px;
+    border-width: 1px;
 }
 
 .signIn label{

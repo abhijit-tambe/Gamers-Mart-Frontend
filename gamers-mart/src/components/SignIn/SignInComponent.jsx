@@ -57,7 +57,7 @@ class SignInComponent extends Component{
         
         return(
             <div className="container  ">
-                <h3>Sign in to Gamers Mart</h3>
+                <h5>Sign in to Gamers Mart</h5>
                 {this.state.loginFailed && <h3> LoginComponent Failed Invalid Username or password</h3>}
                 {this.state.successMessage &&<h3>Loggedin Successfull</h3>}
            <div className="signIn login-container d-flex justify-content-center align-items-center">
@@ -71,7 +71,7 @@ class SignInComponent extends Component{
                    Password </label> <br/>
                <input type="password" name="password" value={this.state.password} onChange={this.changeInput}></input>
                <br/>
-               <button className="btn btn-md btn-primary" onClick={this.loginCheck}>Sign in</button>
+               <button className="btn btn-md btn-success" onClick={this.loginCheck}>Sign in</button>
                {/* <button className="btn btn-md btn-primary" onClick={this.logout}>Logout</button> */}
                </div>
            </div>
