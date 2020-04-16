@@ -10,12 +10,10 @@ class HeaderComponent extends Component{
                 <nav className="navbar navbar-dark bg-dark navbar-expand-md">
                     <div> <a href="abhijittambe.com" className="navbar-brand">abhijit tambe</a></div>
                     <ul className="navbar-nav">
-                        <li><Link className="nav-link">dsadsa</Link>
-                        </li>
-                        
+                        <li><Link to="/login" className="nav-link">Sign In</Link></li>
                     </ul>
                     <ul className="navbar-nav  navbar-collapse justify-content-end">
-                        <li> <Link className="nav-link" to="/logout" onClick={ AuthenticationService.userlogout}>Sign out</Link></li>
+                        <li> <Link className="nav-link" to="/logout" onClick={AuthenticationService.userlogout}>Sign out</Link></li>
                         </ul>
                 </nav>
             </header>
