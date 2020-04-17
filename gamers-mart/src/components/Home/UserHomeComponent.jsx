@@ -7,7 +7,7 @@ class UserHomeComponent extends Component{
         super(props)
     }
     render(){
-        var user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+        var user = AuthenticationService.getUserName();
         return(
             <div>
                 welcome home {user}
