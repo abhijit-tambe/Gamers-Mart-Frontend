@@ -24,6 +24,15 @@ class AuthenticationService {
         console.log('logged out');
     }
 
+
+    getUserName(){
+        if(this.isUserLoggedIn()){
+            let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+            return user;
+        }else
+        return null; 
+    }
+
 }
 
 export default new AuthenticationService();
