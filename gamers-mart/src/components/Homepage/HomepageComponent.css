@@ -1,0 +1,22 @@
+.banner{
+    /* height: 500px;
+    background-color: lime;
+    width: 100%; */
+    /* display: inline-flex; */
+    align-items:center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    height: 300px;
+    width: 100%;
+    background-color:rebeccapurple;
+    /* border-radius: 10px ;
+    border: rgb(150, 150, 150) solid 1px; */
+}
+
+.joinTitle{
+    /* width: 100%; */
+    /* height: 20px; */
+    /* padding: 20px; */
+    margin: 30px;
+}
