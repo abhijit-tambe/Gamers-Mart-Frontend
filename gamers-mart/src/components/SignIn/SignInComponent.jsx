@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import './SignInComponent.css'
 
 import AuthenticateUser from '../../Authentication/AuthenticationService.js'
-import UserHomeComponent from '../Home/UserHomeComponent';
+import UserHomeComponent from '../UserHome/UserHomeComponent';
 
 class SignInComponent extends Component{
     constructor(props){
