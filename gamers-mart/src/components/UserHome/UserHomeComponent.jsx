@@ -5,6 +5,7 @@ import AuthenticationService, { USER_NAME_SESSION_ATTRIBUTE_NAME } from '../../A
 class UserHomeComponent extends Component{
     constructor(props){
         super(props)
+        
     }
 
 
