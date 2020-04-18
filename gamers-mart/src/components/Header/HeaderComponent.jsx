@@ -12,7 +12,7 @@ class HeaderComponent extends Component{
         return(
             <header>
                 <nav className="navbar navbar-dark bg-dark navbar-expand-md">
-                    <div> <a href="abhijittambe.com" className="navbar-brand">GamersMart</a></div>
+                    <div> <Link to="/" className="navbar-brand">GamersMart</Link></div>
                     <ul className="navbar-nav">
                         <li><Link className="nav-link" to="/marketplace">Marketplace</Link></li>
                         {islogged && <li><Link className="nav-link" to="/home" >Dashboard</Link></li>}
