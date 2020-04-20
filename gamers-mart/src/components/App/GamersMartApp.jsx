@@ -10,6 +10,7 @@ import MarketPlaceComponent from '../Marketplace/MarketplaceComponent'
 import MyListingComponent from '../MyListing/MyListingComponent'
 import HomepageComponent from '../Homepage/HomepageComponent'
 import AuthenticationService from '../../Authentication/AuthenticationService.js'
+import SignUpComponent from '../SignUp/SignUpComponent.jsx'
 
 
 class GamersMartApp extends Component{
@@ -38,6 +39,7 @@ render(){
             <Route path="/marketplace" component={MarketPlaceComponent}/>
             <Route path="/logout" component={SignOutComponent}/>
             <Route path="/mylistings" component={MyListingComponent}/>
+            <Route path="/signup" component={SignUpComponent}/>
             <Route component={ErrorComponent}/>
             </Switch>        
         </Router>
