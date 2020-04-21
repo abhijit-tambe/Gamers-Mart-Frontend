@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './GamersMartApp.css'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import ErrorComponent from '../Error/ErrorComponent' 
+import ErrorComponent from './ErrorComponent' 
 import SignInComponent from '../SignIn/SignInComponent'
 import UserHomeComponent from '../UserHome/UserHomeComponent'
 import HeaderComponent from '../Header/HeaderComponent'
@@ -10,7 +10,7 @@ import MarketPlaceComponent from '../Marketplace/MarketplaceComponent'
 import MyListingComponent from '../MyListing/MyListingComponent'
 import HomepageComponent from '../Homepage/HomepageComponent'
 import AuthenticationService from '../../Authentication/AuthenticationService.js'
-import SignUpComponent from '../SignUp/SignUpComponent.jsx'
+import SignUpComponent from '../Homepage/SignUpComponent.jsx'
 
 
 class GamersMartApp extends Component{
