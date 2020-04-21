@@ -18,3 +18,19 @@ label{
 .signupbtn{
   margin-top: 30px;
 }
+
+.formarea{
+  border: solid 3px #f7f7f9;
+  
+  padding: 20px;
+  margin-top:50px;
+  margin-bottom:50px;
+  /* margin-left: 200px;
+  margin-right: 200px; */
+}
+
+.signupmain{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
