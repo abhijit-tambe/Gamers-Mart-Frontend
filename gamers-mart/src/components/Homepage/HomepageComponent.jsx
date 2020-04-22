@@ -30,10 +30,6 @@ class HomepageComponent extends Component{
 
     redirectToSignup(){
         console.log(this.state.Email);
-        // this.props.history.push({
-        //     path:`/signup/${this.state.Email}`,
-        //     state:this.state,
-        // });
         if(this.state.inputEmpty)
         this.props.history.push(`/signup`);    
         else
