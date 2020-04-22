@@ -6,23 +6,39 @@ class HomepageComponent extends Component{
     constructor(props){
         super(props);
         this.state={
-            Email:'email@example.com',
+            Email:'',
+            inputEmpty:true
         }
         this.changeEmail = this.changeEmail.bind(this);
         this.redirectToSignup = this.redirectToSignup.bind(this);
     }
 
     changeEmail(event){
+        
         this.setState({
             [event.target.name]: event.target.value,
         });
+        
+        if(event.target.value===''){
+            this.setState({inputEmpty:true});
+        }else{
+            this.setState({inputEmpty:false});
+        }
        
     };
 
 
     redirectToSignup(){
         console.log(this.state.Email);
-        this.props.history.push('/signup');
+        // this.props.history.push({
+        //     path:`/signup/${this.state.Email}`,
+        //     state:this.state,
+        // });
+        if(this.state.inputEmpty)
+        this.props.history.push(`/signup`);    
+        else
+        this.props.history.push(`/signup/${this.state.Email}`);   
+        
     }
 
     render(){
@@ -39,7 +55,7 @@ class HomepageComponent extends Component{
                 {/* <form className="form-inline"> */}
                  <div className="p mx-md-2 mb-1">
                 {/* <label  className="sr-only">Email</label> */}
-                 <input  className="form-control" type="text" name="Email" value={this.state.Email} onChange={this.changeEmail} />
+                 <input  className="form-control" type="email"  placeholder="Your Email address" name="Email" value={this.state.Email} onChange={this.changeEmail} />
                 </div>
                  {/* <div className="form-group mx-sm-2 mb-2">
                 <label  className="sr-only">Password</label>
@@ -54,7 +70,7 @@ class HomepageComponent extends Component{
                 </div>
             </div> }
 
-            <SignUpComponent email={this.state.Email}></SignUpComponent>
+            {/* {true && <SignUpComponent emailid={this.state.Email}></SignUpComponent>} */}
             {/* </div> */}
             </div>
             
