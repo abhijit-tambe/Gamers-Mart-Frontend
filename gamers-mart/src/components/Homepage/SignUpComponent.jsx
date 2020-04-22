@@ -44,16 +44,17 @@ class SignUpComponent extends Component {
       <div className="signupmain">
         {/* <div className="col-3"></div> */}
         <div className="formarea col-6">
-          <div className="signuplogo">
+          
+          {/* <form> */}
+          <div className="row d-flex justify-content-center">
+            {/* <div className="col-3"></div> */}
+            <div className="signuplogo col-7">
             {" "}
             <p>
               Sign Up for <span className="gamersMart">GamersMart</span>{" "}
             </p>
           </div>
-          {/* <form> */}
-          <div className="row">
-            {/* <div className="col-3"></div> */}
-            <div className="col-12">
+            <div className="col-7">
               <label>Email</label>
               <input
                 type="email"
@@ -66,7 +67,7 @@ class SignUpComponent extends Component {
             </div>
             {/* <div className="col-3"></div>
     <div className="col-3"></div> */}
-            <div className="col-12">
+            <div className="col-7">
               <label>Username</label>
               <input
                 type="text"
@@ -79,7 +80,7 @@ class SignUpComponent extends Component {
             </div>
             {/* <div className="col-3"></div>
     <div className="col-3"></div> */}
-            <div className="col-12">
+            <div className="col-7">
               <label>Password</label>
               <input
                 type="password"
@@ -102,7 +103,7 @@ class SignUpComponent extends Component {
             </div> */}
             {/* <div className="col-3"></div>
     <div className="col-3"></div> */}
-            <div className="col-12">
+            <div className="col-7">
               <label>Phone</label>
               <input
                 type="number"
@@ -115,7 +116,7 @@ class SignUpComponent extends Component {
             </div>
             {/* <div className="col-3"></div>
     <div className="col-3"></div> */}
-            <div className="col-12">
+            <div className="col-7">
               {/* <label>Sign Up</label> */}
               <button onClick={this.dD} className="btn btn-success btn-lg signupbtn">
                 Sign Up
