@@ -39,7 +39,11 @@ render(){
             <Route path="/marketplace" component={MarketPlaceComponent}/>
             <Route path="/logout" component={SignOutComponent}/>
             <Route path="/mylistings" component={MyListingComponent}/>
+           
+            
+            <Route path="/signup/:email" component={SignUpComponent}/>
             <Route path="/signup" component={SignUpComponent}/>
+            
             <Route component={ErrorComponent}/>
             </Switch>        
         </Router>
