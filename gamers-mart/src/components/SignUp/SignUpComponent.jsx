@@ -4,56 +4,49 @@ import "./SignUpComponent.css";
 class SignUpComponent extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      emailId:'',
-      userName:'',
-      password:'',
-      phoneNumber:''
+    this.state = {
+      emailId: "",
+      userName: "",
+      password: "",
+      phoneNumber: "",
     };
 
-    this.changeData=this.changeData.bind(this);
-    this.dD=this.dD.bind(this);
+    this.changeData = this.changeData.bind(this);
+    this.dD = this.dD.bind(this);
   }
 
-
-  componentDidMount(){
-  // console.log('component did mount'+this.props.match.params.emailId);
-  this.setState({
-    emailId:this.props.match.params.email,
-  })
+  componentDidMount() {
+    // console.log('component did mount'+this.props.match.params.emailId);
+    this.setState({
+      emailId: this.props.match.params.email,
+    });
   }
 
-
-  dD()
-  {
+  dD() {
     console.log(this.state);
   }
 
-
-  changeData(event){
+  changeData(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
-
-
 
   render() {
     // console.log(this.props.emailId)
     return (
       <div className="signupmain">
         {/* <div className="col-3"></div> */}
-        <div className="formarea col-6">
-          
+        <div className="formarea col-12">
           {/* <form> */}
           <div className="row d-flex justify-content-center">
             {/* <div className="col-3"></div> */}
             <div className="signuplogo col-7">
-            {" "}
-            <p>
-              Sign Up for <span className="gamersMart">GamersMart</span>{" "}
-            </p>
-          </div>
+              {" "}
+              <p>
+                Sign Up for <span className="gamersMart">GamersMart</span>{" "}
+              </p>
+            </div>
             <div className="col-7">
               <label>Email</label>
               <input
@@ -118,8 +111,11 @@ class SignUpComponent extends Component {
     <div className="col-3"></div> */}
             <div className="col-7">
               {/* <label>Sign Up</label> */}
-              <button onClick={this.dD} className="btn btn-success btn-lg signupbtn">
-                Sign Up
+              <button
+                onClick={this.dD}
+                className="btn btn-success  signupbtn btn-block"
+              >
+                Create account
               </button>
             </div>
           </div>
