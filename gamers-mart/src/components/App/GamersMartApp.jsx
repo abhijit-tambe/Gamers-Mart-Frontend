@@ -28,7 +28,7 @@ class GamersMartApp extends Component{
 render(){
     return(
         
-        <div className="GMApp container"> 
+        <div className="GMApp"> 
        
         <Router>
         <HeaderComponent />
