@@ -18,10 +18,14 @@ class UserHomeComponent extends Component{
 
     render(){
         var user = AuthenticationService.getUserName();
+        var islogged = AuthenticationService.isUserLoggedIn();
         return(
-            <div>
-                welcome home {user}
-            </div>
+            <>
+            { islogged && <div>
+                welcome home {this.props.match.params.name}
+            </div>}
+            { !islogged && <div>public profile of {this.props.match.params.name}</div>}
+            </>
         )
     }
 }
