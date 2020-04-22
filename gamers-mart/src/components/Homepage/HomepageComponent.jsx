@@ -54,10 +54,6 @@ class HomepageComponent extends Component{
                  <input  className="form-control" type="email"  placeholder="Your Email address" name="Email" value={this.state.Email} onChange={this.changeEmail} />
                 </div>
                  {/* <div className="form-group mx-sm-2 mb-2">
-                <label  className="sr-only">Password</label>
-                <input type="password" className="form-control" value="" placeholder="Password"/>
-                 </div> */}
-                 {/* <div className="form-group mx-sm-2 mb-2">
                 <label  className="sr-only">Confirm Password</label>
                 <input type="password" className="form-control" value="" placeholder="Retype Password"/>
                  </div> */}
