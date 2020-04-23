@@ -44,8 +44,8 @@ class MyListingComponent extends Component {
 
       <div className="row container">
         {this.state.mylisting.map((x) => (
-          <div className="col-lg-4 ">
-            <div className="card" key={x.itemId}>
+          <div className="col-lg-4" key={x.itemId}>
+            <div className="card">
               <div className="card-body">
                 <h3 className="card-title">{x.itemName}</h3>
                 <h5 className="card-feature">Game :{x.gameName}</h5>
