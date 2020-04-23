@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import "./SignUpComponent.css";
+import AuthenticationService from "../../Authentication/AuthenticationService";
 
 class SignUpComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      emailId: "",
-      userName: "",
-      password: "",
-      phoneNumber: "",
+      // status: null,
+      st: {
+        emailId: "",
+        userName: "",
+        password: "",
+        phoneNumber: null,
+      },
     };
 
     this.changeData = this.changeData.bind(this);
@@ -16,19 +20,30 @@ class SignUpComponent extends Component {
   }
 
   componentDidMount() {
-    // console.log('component did mount'+this.props.match.params.emailId);
-    this.setState({
-      emailId: this.props.match.params.email,
-    });
+    // console.log("component did mount" + this.props.match.params.emailId);
+    if (this.props.match.params.email === undefined) {
+    } else {
+      this.setState({
+        st: {
+          emailId: this.props.match.params.email,
+        },
+      });
+      console.log("component did mount" + this.props.match.params.email);
+    }
   }
 
   dD() {
     console.log(this.state);
+    AuthenticationService.createUser(this.state.st).then((res) => {
+      console.log(res.status);
+    });
   }
 
   changeData(event) {
     this.setState({
-      [event.target.name]: event.target.value,
+      st: {
+        [event.target.name]: event.target.value,
+      },
     });
   }
 
@@ -54,7 +69,7 @@ class SignUpComponent extends Component {
                 className="form-control"
                 placeholder="Your email address"
                 name="emailId"
-                value={this.state.emailId}
+                value={this.state.st.emailId}
                 onChange={this.changeData}
               />
             </div>
@@ -67,7 +82,7 @@ class SignUpComponent extends Component {
                 className="form-control"
                 placeholder="Pick a username"
                 name="userName"
-                value={this.state.userName}
+                value={this.state.st.userName}
                 onChange={this.changeData}
               />
             </div>
@@ -80,7 +95,7 @@ class SignUpComponent extends Component {
                 className="form-control"
                 placeholder="Select a password"
                 name="password"
-                value={this.state.password}
+                value={this.state.st.password}
                 onChange={this.changeData}
               />
             </div>
@@ -103,7 +118,7 @@ class SignUpComponent extends Component {
                 className="form-control"
                 placeholder="Your cell number"
                 name="phoneNumber"
-                value={this.state.phonenumber}
+                value={this.state.st.phonenumber}
                 onChange={this.changeData}
               />
             </div>
