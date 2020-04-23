@@ -1,3 +1,4 @@
+import DataService from "../Api/DataService";
 import axios from "axios";
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "AuthenticatedUser";
 class AuthenticationService {
@@ -7,11 +8,35 @@ class AuthenticationService {
   }
 
   AuthenticateUser(username, password) {
-    var user = "abhijit";
-    var pass = "tambe";
-    if (username === user && password === pass) {
-      sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-    }
+    // var user = "abhijit";
+    // var pass = "tambe";
+    // var ser = false;
+    // ser = DataService.getAllUsers().then((res) => {
+    //   res.data.filter((element) => {
+    //     // console.log(element.userName);
+    //     if(element.userName == username && element.password == password)
+    //     return true;else
+    //     return false;
+    //   });
+    // });
+
+    return DataService.getAllUsers().then((res) => {
+      res.data.filter((element) => {
+        if (element.userName === username && element.password === password) {
+          console.log(element);
+          sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+          //   return true;
+        }
+        // console.log(element);
+      });
+    });
+
+    // console.log("el" + el.);
+
+    // if (user == username && pass == password) {
+    //   sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+    //   return true;
+    // } else return false;
   }
 
   isUserLoggedIn() {
