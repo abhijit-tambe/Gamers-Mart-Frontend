@@ -3,6 +3,10 @@ import axios from "axios";
 import { API_URI } from "../Api/DataService.js";
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "AuthenticatedUser";
 let interceptorValue;
+
+let state = {
+  user: "",
+};
 class AuthenticationService {
   createUser(st) {
     console.log(st);
@@ -15,6 +19,7 @@ class AuthenticationService {
 
   createUserSessionWithToken(username, token) {
     sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+    state.user = username;
     this.setupAxiosInterceptors(this.createJwtAuthenticationTokenValue(token));
   }
 
@@ -50,6 +55,10 @@ class AuthenticationService {
       let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
       return user;
     } else return null;
+  }
+
+  test() {
+    console.log(state.user);
   }
 }
 
