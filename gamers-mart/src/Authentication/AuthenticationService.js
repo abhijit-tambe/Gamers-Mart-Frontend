@@ -1,42 +1,35 @@
 import DataService from "../Api/DataService";
 import axios from "axios";
+import { API_URI } from "../Api/DataService.js";
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "AuthenticatedUser";
+let interceptorValue;
 class AuthenticationService {
   createUser(st) {
     console.log(st);
     return axios.post("http://localhost:8080//create-account", st);
   }
 
-  AuthenticateUser(username, password) {
-    // var user = "abhijit";
-    // var pass = "tambe";
-    // var ser = false;
-    // ser = DataService.getAllUsers().then((res) => {
-    //   res.data.filter((element) => {
-    //     // console.log(element.userName);
-    //     if(element.userName == username && element.password == password)
-    //     return true;else
-    //     return false;
-    //   });
-    // });
+  authenticateUser(username, password) {
+    return axios.post(`${API_URI}/authenticate`, { username, password });
+  }
 
-    return DataService.getAllUsers().then((res) => {
-      res.data.filter((element) => {
-        if (element.userName === username && element.password === password) {
-          console.log(element);
-          sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-          //   return true;
-        }
-        // console.log(element);
-      });
+  createUserSessionWithToken(username, token) {
+    sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+    this.setupAxiosInterceptors(this.createJwtAuthenticationTokenValue(token));
+  }
+
+  setupAxiosInterceptors(authorizationToken) {
+    interceptorValue = axios.interceptors.request.use((config) => {
+      if (this.isUserLoggedIn()) {
+        config.headers.authorization = authorizationToken;
+      }
+      return config;
     });
+    console.log("interceptor" + interceptorValue);
+  }
 
-    // console.log("el" + el.);
-
-    // if (user == username && pass == password) {
-    //   sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-    //   return true;
-    // } else return false;
+  createJwtAuthenticationTokenValue(token) {
+    return "Bearer " + token;
   }
 
   isUserLoggedIn() {
@@ -47,6 +40,8 @@ class AuthenticationService {
 
   userlogout() {
     sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+    console.log("before eject" + interceptorValue);
+    axios.interceptors.request.eject(interceptorValue);
     console.log("logged out");
   }
 
