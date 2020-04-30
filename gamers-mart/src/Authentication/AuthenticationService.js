@@ -2,11 +2,9 @@ import DataService from "../Api/DataService";
 import axios from "axios";
 import { API_URI } from "../Api/DataService.js";
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "AuthenticatedUser";
+const AUTH_TOKEN_NAME = "Token";
 let interceptorValue;
 
-let state = {
-  user: "",
-};
 class AuthenticationService {
   createUser(st) {
     console.log(st);
@@ -14,13 +12,28 @@ class AuthenticationService {
   }
 
   authenticateUser(username, password) {
+    // var isAuthenticated = false;
     return axios.post(`${API_URI}/authenticate`, { username, password });
+    // .then((res) => {
+    //   console.log("res" + res);
+
+    //   isAuthenticated = true;
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
+    // return isAuthenticated;
   }
 
   createUserSessionWithToken(username, token) {
+    // sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+    // // state.user = username;
+    // this.setupAxiosInterceptors(this.createJwtAuthenticationTokenValue(token));
+
     sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-    state.user = username;
-    this.setupAxiosInterceptors(this.createJwtAuthenticationTokenValue(token));
+    sessionStorage.setItem(AUTH_TOKEN_NAME, token);
+    // console.log(res.data.token);
+    // this.setupAxiosInterceptors(this.createJwtAuthenticationTokenValue());
   }
 
   setupAxiosInterceptors(authorizationToken) {
@@ -33,8 +46,8 @@ class AuthenticationService {
     console.log("interceptor" + interceptorValue);
   }
 
-  createJwtAuthenticationTokenValue(token) {
-    return "Bearer " + token;
+  createJwtAuthenticationTokenValue() {
+    return "Bearer " + sessionStorage.getItem(AUTH_TOKEN_NAME);
   }
 
   isUserLoggedIn() {
@@ -43,11 +56,15 @@ class AuthenticationService {
     return true;
   }
 
-  isThisUserinSession(user) {}
+  authenticatedUserToken() {
+    if (this.isUserLoggedIn()) {
+      this.setupAxiosInterceptors(this.createJwtAuthenticationTokenValue());
+    }
+  }
 
   userlogout() {
     sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
-    console.log("before eject" + interceptorValue);
+    sessionStorage.removeItem(AUTH_TOKEN_NAME);
     axios.interceptors.request.eject(interceptorValue);
     console.log("logged out");
   }
@@ -57,10 +74,6 @@ class AuthenticationService {
       let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
       return user;
     } else return null;
-  }
-
-  test() {
-    console.log(state.user);
   }
 }
 
