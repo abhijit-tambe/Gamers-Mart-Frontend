@@ -28,14 +28,18 @@ class GamersMartApp extends Component {
           <HeaderComponent />
           <div className="container">
             <Switch>
-              <Route path="/" exact component={HomepageComponent}></Route>
-              <Route path="/login" component={SignInComponent}></Route>
-              <Route path="/marketplace" component={MarketPlaceComponent} />
-              <Route path="/logout" component={SignOutComponent} />
-              <Route path="/mylistings" component={MyListingComponent} />
-              <Route path="/signup/:email" component={SignUpComponent} />
-              <Route path="/signup" component={SignUpComponent} />
-              <Route path="/:name" component={UserHomeComponent}></Route>
+              <Route path="/" exact component={HomepageComponent} />
+              <Route path="/login" exact component={SignInComponent} />
+              <Route
+                path="/marketplace"
+                exact
+                component={MarketPlaceComponent}
+              />
+              <Route path="/logout" exact component={SignOutComponent} />
+              <Route path="/mylistings" exact component={MyListingComponent} />
+              <Route path="/signup/:email" exact component={SignUpComponent} />
+              <Route path="/signup" exact component={SignUpComponent} />
+              <Route path="/:name" exact component={UserHomeComponent} />
               <Route component={ErrorComponent} />
             </Switch>
           </div>
