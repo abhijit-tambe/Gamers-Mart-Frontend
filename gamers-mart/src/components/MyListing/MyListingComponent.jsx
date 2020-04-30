@@ -17,7 +17,11 @@ class MyListingComponent extends Component {
   }
 
   componentDidMount() {
+    console.log("component did mount");
     var user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+    if (this.state.islogged) {
+      AuthenticationService.authenticatedUserToken();
+    }
     this.setState({
       user: user,
     });
@@ -36,10 +40,12 @@ class MyListingComponent extends Component {
           });
         });
       });
-    if (this.state.islogged) {
-      AuthenticationService.authenticatedUserToken();
-    }
   }
+
+  componentDidUpdate() {
+    console.log("update");
+  }
+
   render() {
     var paramname = this.props.match.params.name;
     var userValidity = paramname === this.state.user ? true : false;
