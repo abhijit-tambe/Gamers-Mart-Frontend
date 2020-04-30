@@ -6,6 +6,7 @@ class MyListingComponent extends Component {
   constructor() {
     super();
     this.state = {
+      islogged: AuthenticationService.isUserLoggedIn(),
       mylisting: [],
     };
   }
@@ -13,6 +14,9 @@ class MyListingComponent extends Component {
   componentDidMount() {
     var user = AuthenticationService.getUserName();
     // AuthenticationService.setupAxiosInterceptors();
+    if (this.state.islogged) {
+      AuthenticationService.authenticatedUserToken();
+    }
     DataService.getAllUserListings(user).then((res) => {
       this.setState({
         mylisting: res.data,
