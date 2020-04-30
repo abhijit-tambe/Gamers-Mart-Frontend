@@ -3,6 +3,8 @@ import AuthenticationService, {
   USER_NAME_SESSION_ATTRIBUTE_NAME,
 } from "../../Authentication/AuthenticationService.js";
 import DataService from "../../Api/DataService.js";
+import ErrorComponent from "../App/ErrorComponent.jsx";
+import { Switch } from "react-router-dom";
 
 class UserHomeComponent extends Component {
   constructor(props) {
@@ -47,8 +49,13 @@ class UserHomeComponent extends Component {
     var user = AuthenticationService.getUserName();
     var islogged = AuthenticationService.isUserLoggedIn();
     var paramname = this.props.match.params.name;
+    var returninguser =
+      paramname === sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        ? true
+        : false;
     var validity = this.state.validUsers.includes(paramname);
     var welcome = islogged && validity;
+
     // AuthenticationService.test();
     // console.log("from render" + this.state.valid);
     // console.log("from render" + this.state.validUsers);
@@ -59,6 +66,7 @@ class UserHomeComponent extends Component {
         {!welcome && (
           <div>public profile of {this.props.match.params.name}</div>
         )}
+        {!validity && <ErrorComponent></ErrorComponent>}
       </>
     );
   }
