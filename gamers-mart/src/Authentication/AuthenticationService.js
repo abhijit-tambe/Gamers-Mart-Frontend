@@ -43,6 +43,8 @@ class AuthenticationService {
     return true;
   }
 
+  isThisUserinSession(user) {}
+
   userlogout() {
     sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
     console.log("before eject" + interceptorValue);
