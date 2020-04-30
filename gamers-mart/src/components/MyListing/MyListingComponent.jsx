@@ -12,6 +12,7 @@ class MyListingComponent extends Component {
 
   componentDidMount() {
     var user = AuthenticationService.getUserName();
+    // AuthenticationService.setupAxiosInterceptors();
     DataService.getAllUserListings(user).then((res) => {
       this.setState({
         mylisting: res.data,
