@@ -8,6 +8,7 @@ class HeaderComponent extends Component {
   render() {
     var islogged = AuthenticationService.isUserLoggedIn();
     var user = AuthenticationService.getUserName();
+    var mylistings = `${user}/mylistings`;
 
     return (
       <header>
@@ -34,7 +35,7 @@ class HeaderComponent extends Component {
               )}
               {islogged && (
                 <li>
-                  <Link className="nav-link" to="/mylistings">
+                  <Link className="nav-link" to={`/${mylistings}`}>
                     My Listings
                   </Link>
                 </li>
