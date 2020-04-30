@@ -16,13 +16,6 @@ class SignInComponent extends Component {
 
     this.changeInput = this.changeInput.bind(this);
     this.loginCheck = this.loginCheck.bind(this);
-    this.logout = this.logout.bind(this);
-  }
-
-  logout() {
-    if (AuthenticateUser.isUserLoggedIn()) {
-      AuthenticateUser.userlogout();
-    }
   }
 
   changeInput(event) {
@@ -32,27 +25,43 @@ class SignInComponent extends Component {
   }
 
   loginCheck() {
-    AuthenticateUser.AuthenticateUser(
-      this.state.username,
-      this.state.password
-    ).then((res) => {
-      //   })
-      // ) {
-      if (AuthenticateUser.isUserLoggedIn()) {
-        console.log("suc");
-        // this.setState({
-        //     loginFailed:false,
-        //     successMessage: true,
-        // })
+    AuthenticateUser.authenticateUser(this.state.username, this.state.password)
+      .then((res) => {
+        AuthenticateUser.createUserSessionWithToken(
+          this.state.username,
+          res.data.token
+        );
+        console.log("suc" + res.data.token);
+        this.setState({
+          loginFailed: false,
+          successMessage: true,
+        });
         this.props.history.push(`/${this.state.username}`);
-      } else {
-        console.log("fail");
+      })
+      .catch((res) => {
+        console.log("fail" + res);
         this.setState({
           successMessage: false,
           loginFailed: true,
         });
-      }
-    });
+      });
+    // if (
+    //   AuthenticateUser.authenticateUser(
+    //     this.state.username,
+    //     this.state.password
+    //   )
+    // ) {
+    //   this.setState({
+    //     loginFailed: false,
+    //     successMessage: true,
+    //   });
+    //   this.props.history.push(`/${this.state.username}`);
+    // } else {
+    //   this.setState({
+    //     successMessage: false,
+    //     loginFailed: true,
+    //   });
+    // }
   }
 
   render() {
