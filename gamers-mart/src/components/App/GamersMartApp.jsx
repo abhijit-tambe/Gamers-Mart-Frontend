@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./GamersMartApp.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ErrorComponent from "./ErrorComponent";
+import ErrorComponent from "../Error/ErrorComponent";
 import SignInComponent from "../SignIn/SignInComponent";
 import UserHomeComponent from "../UserHome/UserHomeComponent";
 import HeaderComponent from "../Header/HeaderComponent";
@@ -36,10 +36,16 @@ class GamersMartApp extends Component {
                 component={MarketPlaceComponent}
               />
               <Route path="/logout" exact component={SignOutComponent} />
-              <Route path="/mylistings" exact component={MyListingComponent} />
+
+              <Route
+                path="/:name/mylistings"
+                exact
+                component={MyListingComponent}
+              />
+              <Route path="/:name" exact component={UserHomeComponent} />
               <Route path="/signup/:email" exact component={SignUpComponent} />
               <Route path="/signup" exact component={SignUpComponent} />
-              <Route path="/:name" exact component={UserHomeComponent} />
+
               <Route component={ErrorComponent} />
             </Switch>
           </div>
