@@ -10,8 +10,12 @@ class UserHomeComponent extends Component {
     super(props);
     this.state = {
       validUsers: [],
-      valid: true,
-      islogged: AuthenticationService.isUserLoggedIn(),
+      isValidUser: false,
+      isLogged: AuthenticationService.isUserLoggedIn(),
+      paramName: "",
+      returningUser: false,
+      isValidUser: false,
+      decide: false,
     };
   }
 
@@ -30,38 +34,29 @@ class UserHomeComponent extends Component {
     if (this.state.islogged) {
       AuthenticationService.authenticatedUserToken();
     }
-  }
-
-  render() {
-    // var user = AuthenticationService.getUserName();
-    // var islogged = AuthenticationService.isUserLoggedIn();
     var paramname = this.props.match.params.name;
-    var userValidity =
+    var returningUser =
       paramname === sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
         ? true
         : false;
-    var validity = this.state.validUsers.includes(paramname);
-    // var welcome = islogged && validity;
-    // AuthenticationService.test();
-    // console.log("from render" + this.state.valid);
-    // console.log("from render" + this.state.validUsers);
-    // console.log(validity);
-    // return (
-    //   <>
-    //     {welcome && <div>welcome home {this.props.match.params.name}</div>}
-    //     {!welcome && (
-    //       <div>public profile of {this.props.match.params.name}</div>
-    //     )}
-    //     {!validity && <ErrorComponent></ErrorComponent>}
-    //   </>
-    // );
-    if (validity) {
-      if (userValidity) {
-        return <div>welcome home {this.props.match.params.name}</div>;
-      } else {
-        return <div>public profile of {this.props.match.params.name}</div>;
-      }
-    } else {
+    var isValidUser = this.state.validUsers.includes(paramname);
+    var decide = isValidUser && returningUser;
+    this.setState({
+      paramName: paramname,
+      returningUser,
+      isValidUser,
+      decide,
+    });
+  }
+
+  render() {
+    if (this.state.decide) {
+      return <div>welcome home {this.props.match.params.name}</div>;
+    }
+    // else if (!this.state.decide) {
+    //   return <div>public profile of {this.props.match.params.name}</div>;
+    // }
+    else {
       return <ErrorComponent />;
     }
   }
