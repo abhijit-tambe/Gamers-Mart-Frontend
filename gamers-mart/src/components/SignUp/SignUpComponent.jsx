@@ -22,7 +22,7 @@ class SignUpComponent extends Component {
   }
 
   componentDidMount() {
-    // console.log("component did mount" + this.props.match.params.emailId);
+    console.log("component did mount" + this.props.match.params.emailId);
     if (this.props.match.params.email === undefined) {
     } else {
       this.setState({

@@ -42,7 +42,11 @@ class GamersMartApp extends Component {
                 exact
                 component={MyListingComponent}
               />
-              <Route path="/:name" exact component={UserHomeComponent} />
+              <Route
+                path="/:name/dashboard"
+                exact
+                component={UserHomeComponent}
+              />
               <Route path="/signup/:email" exact component={SignUpComponent} />
               <Route path="/signup" exact component={SignUpComponent} />
 

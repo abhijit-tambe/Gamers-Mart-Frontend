@@ -27,7 +27,7 @@ class HeaderComponent extends Component {
               </li>
               {islogged && (
                 <li>
-                  <Link className="nav-link" to={`/${user}`}>
+                  <Link className="nav-link" to={`/${user}/dashboard`}>
                     Dashboard
                   </Link>
                 </li>

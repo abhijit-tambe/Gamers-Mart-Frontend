@@ -6,9 +6,12 @@ const AUTH_TOKEN_NAME = "Token";
 let interceptorValue;
 
 class AuthenticationService {
+  // inititalizeDummyData() {
+  //   axios.post(`${API_URI}/`);
+  // }
   createUser(st) {
     console.log(st);
-    return axios.post("http://localhost:8080//create-account", st);
+    return axios.post(`${API_URI}/create-account`, st);
   }
 
   authenticateUser(username, password) {

@@ -36,7 +36,7 @@ class SignInComponent extends Component {
           loginFailed: false,
           successMessage: true,
         });
-        this.props.history.push(`/${this.state.username}`);
+        this.props.history.push(`/${this.state.username}/dashboard`);
       })
       .catch((res) => {
         console.log("fail" + res);
