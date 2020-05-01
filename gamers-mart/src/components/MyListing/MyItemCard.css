@@ -1,0 +1,29 @@
+.additem {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* background-color: s#007bff; */
+  /* border-style: solid; */
+  /* border-color: grey; */
+  /* border-width: 1px; */
+}
+.outerbox {
+  height: 100px;
+  width: 90%;
+  border-style: double;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 25px;
+}
+
+.innerbox {
+  height: 80px;
+  width: 200px;
+  display: flex;
+  border-style: dotted;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
