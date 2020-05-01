@@ -10,7 +10,7 @@ class MyItemCard extends Component {
     return (
       <div className="row container">
         {this.props.datax.map((x) => (
-          <div className="" key={x.itemId}>
+          <div className="col-md-4" key={x.itemId}>
             <div className="card">
               <div className="card-body">
                 <h3 className="card-title">{x.itemName}</h3>
