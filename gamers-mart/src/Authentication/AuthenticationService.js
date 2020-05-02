@@ -78,6 +78,14 @@ class AuthenticationService {
       return user;
     } else return null;
   }
+
+  addUserItem(data) {
+    axios.post(`${API_URI}/items/${this.getUserName()}/add`, data);
+  }
+
+  removeUserItem(id) {
+    axios.delete(`${API_URI}/items/${this.getUserName()}/delete/${id}`);
+  }
 }
 
 export default new AuthenticationService();
