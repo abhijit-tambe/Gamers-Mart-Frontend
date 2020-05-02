@@ -11,7 +11,7 @@ import MyListingComponent from "../MyListing/MyListingComponent";
 import HomepageComponent from "../Homepage/HomepageComponent";
 import AuthenticationService from "../../Authentication/AuthenticationService.js";
 import SignUpComponent from "../SignUp/SignUpComponent.jsx";
-
+import AddItemComponent from "../MyListing/AddItemComponent";
 class GamersMartApp extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +49,7 @@ class GamersMartApp extends Component {
               />
               <Route path="/signup/:email" exact component={SignUpComponent} />
               <Route path="/signup" exact component={SignUpComponent} />
-
+              <Route path="/:name/additem" exact component={AddItemComponent} />
               <Route component={ErrorComponent} />
             </Switch>
           </div>
