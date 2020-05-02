@@ -15,6 +15,7 @@ class MyListingComponent extends Component {
       mylisting: [],
       user: "",
     };
+    this.additem = this.additem.bind(this);
   }
 
   componentDidMount() {
@@ -47,12 +48,28 @@ class MyListingComponent extends Component {
     console.log("update");
   }
 
+  additem() {
+    this.props.history.push(`/${this.props.match.params.name}/additem`);
+  }
   render() {
     var paramname = this.props.match.params.name;
     var userValidity = paramname === this.state.user ? true : false;
     if (userValidity) {
       return (
         <>
+          <div className="additem row">
+            <div className="outerbox">
+              <div className="innerbox">
+                <button
+                  className="btn btn-lg btn-primary"
+                  onClick={this.additem}
+                >
+                  Add Item
+                </button>
+              </div>
+            </div>
+          </div>
+
           <MyItemCard datax={this.state.mylisting}> </MyItemCard>
         </>
       );
