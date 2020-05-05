@@ -32,10 +32,12 @@ class SignUpComponent extends Component {
       });
       console.log("component did mount" + this.props.match.params.email);
     }
+
+    console.log(this.state.st);
   }
 
   dD() {
-    console.log(this.state);
+    console.log(this.state.st);
     AuthenticationService.createUser(this.state.st)
       .then((res) => {
         console.log("status:" + res);
@@ -52,11 +54,11 @@ class SignUpComponent extends Component {
   }
 
   changeData(event) {
+    console.log(event.target.name);
     this.setState({
-      st: {
-        [event.target.name]: event.target.value,
-      },
+      st: { ...this.state.st, [event.target.name]: event.target.value },
     });
+    console.log(this.state.st);
   }
 
   render() {
@@ -142,7 +144,7 @@ class SignUpComponent extends Component {
                   className="form-control"
                   placeholder="Your cell number"
                   name="phoneNumber"
-                  value={this.state.st.phonenumber}
+                  value={this.state.st.phoneNumber}
                   onChange={this.changeData}
                 />
               </div>
