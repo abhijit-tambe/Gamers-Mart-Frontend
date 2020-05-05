@@ -11,7 +11,7 @@ class AuthenticationService {
   // }
   createUser(st) {
     console.log(st);
-    return axios.post(`${API_URI}/create-account`, st);
+    return axios.post(`${API_URI}/user/create-account`, st);
   }
 
   authenticateUser(username, password) {
