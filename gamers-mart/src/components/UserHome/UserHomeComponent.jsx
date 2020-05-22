@@ -4,6 +4,7 @@ import AuthenticationService, {
 } from "../../Authentication/AuthenticationService.js";
 import DataService from "../../Api/DataService.js";
 import ErrorComponent from "../Error/ErrorComponent.jsx";
+import { Link } from "react-router-dom";
 
 class UserHomeComponent extends Component {
   constructor(props) {
@@ -69,10 +70,50 @@ class UserHomeComponent extends Component {
       //   return <ErrorComponent />;
       // } */}
         {this.state.decide && (
-          <div>welcome home {this.props.match.params.name}</div>
+          <div className="userHome">
+            {/* <div>
+              <h1>welcome home {this.props.match.params.name}</h1>
+            </div> */}
+            <div className="innerMEnu">
+              {/* <h3>menu area</h3> */}
+              <ul className="nav nav-tabs justify-content-center">
+                <li className="nav-item">
+                  {/* <a className="nav-link active">
+                    <Link to="/home">home</Link>
+                  </a> */}
+                  <a className="nav-link active">Home</a>
+                  {/* <Link>Home</Link> */}
+                </li>
+                <li className="nav-item">
+                  {/* <a className="nav-link">
+                    <Link to="/inventory">Inventory</Link>
+                  </a> */}
+                  <a className="nav-item">Inventory</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link">
+                    <Link
+                      to={`/${AuthenticationService.getUserName()}/mylistings`}
+                    >
+                      My Listings
+                    </Link>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link">
+                    <Link
+                      to={`/${AuthenticationService.getUserName()}/history`}
+                    >
+                      Trade History
+                    </Link>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         )}
 
-        {!this.state.decide && <ErrorComponent />}
+        {/* {!this.state.decide && <ErrorComponent />} */}
       </div>
     );
   }
